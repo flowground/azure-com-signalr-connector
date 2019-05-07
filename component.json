@@ -1,0 +1,237 @@
+{
+    "title": "SignalRManagementClient",
+    "description": "REST API for Azure SignalR Service",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/signalr/2018-10-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Lists all of the available REST API operations of the Microsoft.SignalRService provider.",
+            "description": "Lists all of the available REST API operations of the Microsoft.SignalRService provider.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignalR_ListBySubscription": {
+            "main": "./lib/actions/SignalR_ListBySubscription.js",
+            "title": "Handles requests to list all resources in a subscription.",
+            "description": "Handles requests to list all resources in a subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignalR_ListBySubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignalR_CheckNameAvailability": {
+            "main": "./lib/actions/SignalR_CheckNameAvailability.js",
+            "title": "Checks that the SignalR name is valid and is not already in use.",
+            "description": "Checks that the SignalR name is valid and is not already in use.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignalR_CheckNameAvailability.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Usages_List": {
+            "main": "./lib/actions/Usages_List.js",
+            "title": "List usage quotas for Azure SignalR service by location.",
+            "description": "List usage quotas for Azure SignalR service by location.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Usages_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignalR_ListByResourceGroup": {
+            "main": "./lib/actions/SignalR_ListByResourceGroup.js",
+            "title": "Handles requests to list all resources in a resource group.",
+            "description": "Handles requests to list all resources in a resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignalR_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignalR_Delete": {
+            "main": "./lib/actions/SignalR_Delete.js",
+            "title": "Operation to delete a SignalR service.",
+            "description": "Operation to delete a SignalR service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignalR_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignalR_Get": {
+            "main": "./lib/actions/SignalR_Get.js",
+            "title": "Get the SignalR service and its properties.",
+            "description": "Get the SignalR service and its properties.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignalR_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignalR_Update": {
+            "main": "./lib/actions/SignalR_Update.js",
+            "title": "Operation to update an exiting SignalR service.",
+            "description": "Operation to update an exiting SignalR service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignalR_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignalR_CreateOrUpdate": {
+            "main": "./lib/actions/SignalR_CreateOrUpdate.js",
+            "title": "Create a new SignalR service and update an exiting SignalR service.",
+            "description": "Create a new SignalR service and update an exiting SignalR service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignalR_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignalR_ListKeys": {
+            "main": "./lib/actions/SignalR_ListKeys.js",
+            "title": "Get the access keys of the SignalR resource.",
+            "description": "Get the access keys of the SignalR resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignalR_ListKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SignalR_RegenerateKey": {
+            "main": "./lib/actions/SignalR_RegenerateKey.js",
+            "title": "Regenerate SignalR service access key. PrimaryKey and SecondaryKey cannot be regenerated at the same time.",
+            "description": "Regenerate SignalR service access key. PrimaryKey and SecondaryKey cannot be regenerated at the same time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SignalR_RegenerateKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

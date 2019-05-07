@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Parameters describes the request to regenerate access keys",
+            "properties": {
+                "keyType": {
+                    "description": "The keyType to regenerate. Must be either 'primary' or 'secondary'(case-insensitive).",
+                    "enum": [
+                        "Primary",
+                        "Secondary"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "KeyType"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "2018-03-01-preview",
+                "2018-10-01"
+            ]
+        }
+    }
+}

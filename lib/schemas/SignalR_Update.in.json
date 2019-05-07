@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Parameters for SignalR service update operation",
+            "properties": {
+                "properties": {
+                    "description": "Settings used to provision or configure the resource",
+                    "x-ms-client-flatten": false,
+                    "properties": {
+                        "hostNamePrefix": {
+                            "description": "Prefix for the hostName of the SignalR service. Retained for future use.\r\nThe hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "sku": {
+                    "description": "The billing information of the resource.(e.g. basic vs. standard)",
+                    "properties": {
+                        "capacity": {
+                            "description": "Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not \r\npossible for the resource this may be omitted.",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "family": {
+                            "description": "Optional, string. If the service has different generations of hardware, for the same SKU, then that can be captured here.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "The name of the SKU. This is typically a letter + number code, such as A0 or P3.  Required (if sku is specified)",
+                            "type": "string"
+                        },
+                        "size": {
+                            "description": "Optional, string. When the name field is the combination of tier and some other value, this would be the standalone code.",
+                            "type": "string"
+                        },
+                        "tier": {
+                            "description": "Optional tier of this particular SKU. `Basic` is deprecated, use `Standard` instead for Basic tier.",
+                            "enum": [
+                                "Free",
+                                "Basic",
+                                "Standard",
+                                "Premium"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "SignalRSkuTier"
+                            }
+                        }
+                    },
+                    "required": [
+                        "name"
+                    ],
+                    "type": "object"
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A list of key value pairs that describe the resource.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "2018-03-01-preview",
+                "2018-10-01"
+            ]
+        }
+    }
+}

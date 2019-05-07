@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "location": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Data POST-ed to the nameAvailability action",
+            "properties": {
+                "name": {
+                    "description": "The SignalR service name to validate. e.g.\"my-signalR-name-here\"",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The resource type. Should be always \"Microsoft.SignalRService/SignalR\".",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type",
+                "name"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "2018-03-01-preview",
+                "2018-10-01"
+            ]
+        }
+    }
+}
